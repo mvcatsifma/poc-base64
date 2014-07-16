@@ -1,1 +1,17 @@
 apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'http://artifactory.alliander.local/artifactory/repo'
+        credentials {
+            username = project.getProperty("artifactoryUsername")
+            password = project.getProperty("artifactoryPassword")
+        }
+    }
+}
+
+dependencies {
+    compile 'commons-codec:commons-codec:1.9'
+    compile 'commons-io:commons-io:2.4'
+}
